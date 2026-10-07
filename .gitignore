@@ -1,0 +1,7 @@
+.melange/
+.claude/settings.local.json
+Secrets.xcconfig
+*.xcuserstate
+xcuserdata/
+build/
+DerivedData/
