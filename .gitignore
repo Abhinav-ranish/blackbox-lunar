@@ -5,3 +5,7 @@ Secrets.xcconfig
 xcuserdata/
 build/
 DerivedData/
+demo-assets/
+.claude/
+.mcp.json
+.codex/

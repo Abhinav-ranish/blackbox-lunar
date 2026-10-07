@@ -1,0 +1,40 @@
+name: Blackbox
+options:
+  bundleIdPrefix: app.tryada
+  deploymentTarget:
+    iOS: "17.0"
+packages:
+  ZeticMLangeiOS:
+    url: https://github.com/zetic-ai/ZeticMLangeiOS.git
+    exactVersion: "1.11.0"
+targets:
+  Blackbox:
+    type: application
+    platform: iOS
+    sources: [Sources]
+    configFiles:
+      Debug: Secrets.xcconfig
+      Release: Secrets.xcconfig
+    dependencies:
+      - package: ZeticMLangeiOS
+        product: ZeticMLange
+      - sdk: Accelerate.framework
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.tryada.blackbox
+        DEVELOPMENT_TEAM: 7GK85RCV8G
+        CODE_SIGN_STYLE: Automatic
+        SWIFT_VERSION: "5.0"
+        TARGETED_DEVICE_FAMILY: "1"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: Blackbox
+        INFOPLIST_KEY_NSCameraUsageDescription: Blackbox records the room on-device to log human activity. Nothing leaves the phone.
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
+        INFOPLIST_KEY_UIStatusBarStyle: UIStatusBarStyleLightContent
+    info:
+      path: Sources/Info.plist
+      properties:
+        MelangePersonalKey: $(MELANGE_PERSONAL_KEY)
+        UIFileSharingEnabled: true
+        LSSupportsOpeningDocumentsInPlace: true
